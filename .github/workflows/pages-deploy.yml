@@ -51,7 +51,12 @@ jobs:
           # rm -rf _posts
 
           # Clone the remote blog posts repository into the `_posts` folder
-          git clone https://github.com/0xhanu58/CTFs.git _drafts
+          git clone https://github.com/0xhanu58/CTFs.git CTF
+
+          # get import-posts-jekyll.sh to format folders
+          wget https://raw.githubusercontent.com/0xhanu58/scipts-to-make-life-easy/refs/heads/main/import-posts-jekyll.sh
+          import-posts-jekyll.sh CTF
+          rm import-posts-jekyll.sh
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}" --drafts
