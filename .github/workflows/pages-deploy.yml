@@ -55,7 +55,7 @@ jobs:
 
           # get import-posts-jekyll.sh to format folders
           wget https://raw.githubusercontent.com/0xhanu58/scipts-to-make-life-easy/refs/heads/main/import-posts-jekyll.sh
-          import-posts-jekyll.sh CTF
+          bash import-posts-jekyll.sh CTF
           rm import-posts-jekyll.sh
 
       - name: Build site
