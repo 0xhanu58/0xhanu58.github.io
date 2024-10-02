@@ -45,8 +45,16 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
+      - name: Clone Blog Posts Repository
+        run: |
+          # Delete existing `_posts` folder if it exists
+          # rm -rf _posts
+
+          # Clone the remote blog posts repository into the `_posts` folder
+          git clone https://github.com/0xhanu58/CTFs.git _drafts
+
       - name: Build site
-        run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
+        run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}" --drafts
         env:
           JEKYLL_ENV: "production"
 
